@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireless Earbuds - Product Details</title>
+
+    <!-- Font Awesome CDN link for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: black;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styles */
+        #navbar {
+            width: 100%;
+        }
+
+        /* Product Detail Section */
+        .product-detail-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            flex: 1;
+            padding: 20px;
+            max-width: 500px;
+        }
+
+        .product-info h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-actions button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin-right: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .buy-now-btn {
+            background-color: #FF6347;
+            color: white;
+        }
+
+        /* Comments Section */
+        .comments-section {
+            padding: 20px;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+
+        .comments-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .comments-list {
+            margin-bottom: 20px;
+        }
+
+        .comment-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .add-comment textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .add-comment button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .footer-logo a {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #f5e1c9;
+        }
+
+        .footer-links ul {
+            list-style-type: none;
+        }
+
+        .footer-links ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .footer-links ul li a:hover {
+            color: #ff7f50;
+        }
+
+        .footer-socials a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer-socials a:hover {
+            color: #ff7f50;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links ul {
+                margin-top: 10px;
+            }
+
+            .footer-links ul li {
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .product-detail-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-info {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div id="navbar"></div>
+    </header>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-container">
+        <div class="product-image">
+            <img src="img/earbuds.jpeg" alt="Wireless Earbuds">
+        </div>
+
+        <div class="product-info">
+            <h1>Wireless Earbuds</h1>
+            <p class="product-description">
+                The perfect companion for your workout sessions. Experience superior sound quality, long-lasting
+                battery, and a sleek, comfortable design.
+            </p>
+            <p class="product-price">$99.99</p>
+            <div class="product-actions">
+                <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+                <button class="buy-now-btn" onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments-section">
+        <h2>Customer Reviews</h2>
+        <div class="comments-list" id="comments-list">
+            <!-- Comments will appear here dynamically -->
+        </div>
+
+        <div class="add-comment">
+            <h3>Leave a Comment</h3>
+            <textarea id="comment-text" placeholder="Write your comment here..." rows="4"></textarea>
+            <button onclick="postComment()">Post Comment</button>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="index.html">4orcraze</a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Your Brand. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        /************************
+            navbar fetching here......
+        *************************/
+        document.getElementById("navbar"), innerHTML = fetch("navbar.html")
+            .then(Response => Response.text())
+            .then(data => document.getElementById("navbar").innerHTML = data);
+
+        /**********************
+            Toggle navbar menu on mobile view....
+        *************************/
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        // Function to add product to cart (using localStorage or sessionStorage)
+        function addToCart() {
+            alert("Product added to cart!");
+            // You can store product data in localStorage here if needed for real cart functionality.
+        }
+
+        // Function to handle Buy Now button
+        function buyNow() {
+            window.location.href = "checkout.html"; // Redirect to checkout page
+        }
+
+        // Function to post a comment
+        function postComment() {
+            var commentText = document.getElementById("comment-text").value;
+            if (commentText !== "") {
+                var commentSection = document.getElementById("comments-list");
+                var newComment = document.createElement("div");
+                newComment.classList.add("comment-item");
+                newComment.innerHTML = `<p><strong>User:</strong> ${commentText}</p>`;
+                commentSection.appendChild(newComment);
+
+                // Clear the textarea after posting
+                document.getElementById("comment-text").value = "";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

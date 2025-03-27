@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4orcraze</title>
+
+    <!-- Font Awesome CDN link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar here...... -->
+
+    <header>
+        <div id="navbar"></div>
+    </header>
+
+    <!-- Hero Slider Section...... -->
+
+    <div class="hero-container">
+        <div class="hero-slide active" style="background-image: url('img/earbuds.jpeg');">
+            <div class="slider-content">
+                <h2>Exciting New Products</h2>
+                <p>Discover the latest tech gadgets and accessories that are
+                    changing the game.</p>
+                <a href="#" class="slider-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="hero-slide" style="background-image: url('img/black_head_phone.jpeg');">
+            <div class="slider-content">
+                <h2>Unbeatable Prices</h2>
+                <p>Explore amazing deals and discounts on your favorite
+                    products.</p>
+                <a href="#" class="slider-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="hero-slide" style="background-image: url('img/pink_head_phone.jpeg');">
+            <div class="slider-content">
+                <h2>Quality You Can Trust</h2>
+                <p>Top-notch products with high-end features at affordable
+                    prices.</p>
+                <a href="#" class="slider-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="hero-slide" style="background-image: url('img/watch2.jpeg');">
+            <div class="slider-content">
+                <h2>Tech Innovations</h2>
+                <p>Stay ahead of the curve with cutting-edge technology and
+                    trends.</p>
+                <a href="#" class="slider-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="arrow arrow-left" onclick="prevSlide()">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="arrow arrow-right" onclick="nextSlide()">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <!-- Best Selling Products Section..... -->
+
+    <section class="all-section" id="Best-selling">
+        <h2>Best Selling Products</h2>
+        <div class="product-section">
+
+            <!-- Product Card 1 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/earbuds.jpeg" alt="Wireless Earbuds">
+                </div>
+                <div class="product-info">
+                    <h3>Wireless Earbuds</h3>
+                    <p>The perfect companion for your workout sessions.</p>
+                    <a href="product-details.html" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/black_head_phone.jpeg" alt="Noise-Canceling Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Noise-Canceling Headphones</h3>
+                    <p>Immerse yourself in sound with cutting-edge
+                        noise-canceling technology.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/pink_head_phone.jpeg" alt="Pink Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Pink Headphones</h3>
+                    <p>Stylish and comfortable for long listening
+                        sessions.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/watch2.jpeg" alt="Smart Watch">
+                </div>
+                <div class="product-info">
+                    <h3>Smart Watch</h3>
+                    <p>Track your health and stay connected on the go.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="view-all-btn">View All</a>
+    </section>
+
+    <!-- Head Phones Products Section -->
+
+    <section class="all-section" id="head-phones-products">
+        <h2>Head Phones</h2>
+        <div class="product-section">
+
+            <!-- Product Card 1 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/head phone/zebronics wired headphone.jpg" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium
+                        noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/head phone/boat-rockers-450-bluetooth-headphone.jpg" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium
+                        noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/head phone/Noise Wireless On-Ear Headphones.png" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium
+                        noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img id="sony-headphone" src="img/head phone/sony-headphone.jpg" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium
+                        noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Button -->
+
+        <a href="all-headphone.html" class="view-all-btn">View All</a>
+    </section>
+
+    <!-- Add more product here.... 
+
+    <section class="all-section" id="product-id">
+        <h2>Section name</h2>
+        <div class="product-section">
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/head phone/zebronics wired headphone.jpg" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium
+                        noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+
+    <!-- Footer Section -->
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="index.html">4orcraze</a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Your Brand. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for slider functionality -->
+
+    <script src="code.js"></script>
+</body>
+
+</html>
