@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product {
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(90deg, #ff00ff, #ffcc00);
+            border: none;
+            color: black;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background: linear-gradient(90deg, #ffcc00, #ff00ff);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="product-container">
+        <div class="product">
+            <img src="airpods.jpg" alt="Air Pro 2nd Generation">
+            <h2>Air Pro 2nd Generation Black Edition</h2>
+            <p class="price">Rs. 1,799.99</p>
+            <p>MagSafe Wireless Charging Case | Free Silicone Cover | 100% Warranty</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="airpods-anc.jpg" alt="Air Pro 2nd Generation ANC">
+            <h2>Air Pro 2nd Generation ANC (Type-C)</h2>
+            <p class="price">Rs. 2,999.98</p>
+            <p>Free 5000mAh MagSafe Powerbank | 100% Warranty</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", () => {
+                alert("Item added to cart!");
+            });
+        });
+    </script>
+</body>
+
+</html>

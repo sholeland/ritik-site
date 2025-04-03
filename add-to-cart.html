@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 4orcraze - Cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: black;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navbar container */
+        #navbar {
+            width: 100%;
+        }
+
+
+        main {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 50px;
+            padding: 5px;
+        }
+
+        .subtotal {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .place-order {
+            background-color: #ff007f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .footer-logo a {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #f5e1c9;
+        }
+
+        .footer-links ul {
+            list-style-type: none;
+        }
+
+        .footer-links ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .footer-links ul li a:hover {
+            color: #ff7f50;
+        }
+
+        .footer-socials a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer-socials a:hover {
+            color: #ff7f50;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links ul {
+                margin-top: 10px;
+            }
+
+            .footer-links ul li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="navbar"></div>
+    </header>
+
+    <main>
+        <h2>Your cart</h2>
+
+        <div class="cart-item">
+            <img src="img/buds.jpeg" alt="Air Pro 2 Black">
+            <div class="item-details">
+                <h3>Air Pro 2nd Generation Black Edition</h3>
+                <p>MagSafe Wireless Charging Case | Free Silicon Cover | 100% Warranty</p>
+                <p class="price">Rs. 1,799.99</p>
+                <input type="number" value="1" min="1">
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="img/earbuds 2.jpeg" alt="Air Pro 2 ANC">
+            <div class="item-details">
+                <h3>Air Pro 2nd Generation ANC (Type-C)</h3>
+                <p>Free 5000mAh MagSafe Powerbank | 100% Warranty</p>
+                <p class="price">Rs. 2,999.98</p>
+                <input type="number" value="2" min="1">
+            </div>
+        </div>
+
+        <div class="subtotal">
+            <p>Subtotal: <span id="subtotal-price">Rs. 4,799.98</span></p>
+        </div>
+
+        <button class="place-order">Place Order</button>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="index.html">4orcraze</a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Your Brand. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        /************************
+            navbar fetching here......
+        *************************/
+        document.getElementById("navbar"), innerHTML = fetch("navbar.html")
+            .then(Response => Response.text())
+            .then(data => document.getElementById("navbar").innerHTML = data);
+
+        /**********************
+            Toggle navbar menu on mobile view....
+        *************************/
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let quantityInputs = document.querySelectorAll("input[type='number']");
+            let subtotalPrice = document.getElementById("subtotal-price");
+
+            function updateSubtotal() {
+                let total = 1799.99 * quantityInputs[0].value + 1499.99 * quantityInputs[1].value;
+                subtotalPrice.textContent = "Rs. " + total.toFixed(2);
+            }
+
+            quantityInputs.forEach(input => {
+                input.addEventListener("change", updateSubtotal);
+            });
+
+            updateSubtotal();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4orcraze</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: black;
+            margin: 0;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        #navbar {
+            width: 100%;
+        }
+
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            width: 100%;
+            height: 50vh;
+            background-size: contain;
+            background-color: rgb(231, 231, 231);
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slider-content {
+            position: absolute;
+            bottom: 20%;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+        }
+
+        .slider-btn {
+            background-color: #f5e1c9;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.5s;
+        }
+
+        .slider-btn:hover {
+            background-color: #d7b29f;
+        }
+
+        .arrow {
+            position: absolute;
+            bottom: 50%;
+            color: white;
+            font-size: 30px;
+            background: rgba(116, 116, 116, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+
+        .arrow:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        .product-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        /* Ensure that all product cards have consistent width and height */
+        .product-card {
+            width: 23%;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 380px; /* Set a fixed height for consistency */
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .product-card .product-info {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1; /* Allow the info section to expand and fill the remaining space */
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #bebebe;
+            margin-bottom: 15px;
+        }
+
+        .product-card .buy-btn {
+            background-color: #666666;
+            color: rgb(241, 240, 240);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .product-card .buy-btn:hover {
+            background-color: #0a0a0a;
+        }
+
+        .view-all-btn {
+            display: inline-block;
+            background-color: #f5e1c9;
+            color: black;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .view-all-btn:hover {
+            background-color: #d7b29f;
+        }
+
+        .all-section {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .footer-logo{
+            margin-bottom: 20px;
+        }
+
+        .footer-logo a {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #f5e1c9;
+        }
+
+        .footer-links ul {
+            list-style-type: none;
+        }
+
+        .footer-links ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .footer-links ul li a:hover {
+            color: #ff7f50;
+        }
+
+        .footer-socials a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .footer-socials a:hover {
+            color: #ff7f50;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero-container {
+                height: 50vh;
+            }
+
+            .slider-content {
+                font-size: 18px;
+            }
+
+            .slider-btn {
+                font-size: 16px;
+            }
+
+            .arrow {
+                font-size: 24px;
+            }
+
+            .product-card {
+                width: 100%;
+                min-height: 350px; /* Slightly adjust height for smaller screens */
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .product-card {
+                width: 48%;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .product-card {
+                width: 23%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div id="navbar"></div>
+    </header>
+
+    <div class="hero-container">
+        <div class="hero-slide active" style="background-image: url('img/earbuds.jpeg');">
+            <div class="slider-content">
+                <h2>Exciting New Products</h2>
+                <p>Discover the latest tech gadgets and accessories that are changing the game.</p>
+                <a href="#" class="slider-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="hero-slide" style="background-image: url('img/black_head_phone.jpeg');">
+            <div class="slider-content">
+                <h2>Unbeatable Prices</h2>
+                <p>Explore amazing deals and discounts on your favorite products.</p>
+                <a href="#" class="slider-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="hero-slide" style="background-image: url('img/pink_head_phone.jpeg');">
+            <div class="slider-content">
+                <h2>Quality You Can Trust</h2>
+                <p>Top-notch products with high-end features at affordable prices.</p>
+                <a href="#" class="slider-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="hero-slide" style="background-image: url('img/watch2.jpeg');">
+            <div class="slider-content">
+                <h2>Tech Innovations</h2>
+                <p>Stay ahead of the curve with cutting-edge technology and trends.</p>
+                <a href="#" class="slider-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="arrow arrow-left" onclick="prevSlide()">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="arrow arrow-right" onclick="nextSlide()">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <section class="all-section" id="Best-selling">
+        <h2>Best Selling Products</h2>
+        <div class="product-section">
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/earbuds.jpeg" alt="Wireless Earbuds">
+                </div>
+                <div class="product-info">
+                    <h3>Wireless Earbuds</h3>
+                    <p>The perfect companion for your workout sessions.</p>
+                    <a href="product-details.html" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/black_head_phone.jpeg" alt="Noise-Canceling Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Noise-Canceling Headphones</h3>
+                    <p>Immerse yourself in sound with cutting-edge noise-canceling technology.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/pink_head_phone.jpeg" alt="Pink Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Pink Headphones</h3>
+                    <p>Stylish and comfortable for long listening sessions.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/watch2.jpeg" alt="Smart Watch">
+                </div>
+                <div class="product-info">
+                    <h3>Smart Watch</h3>
+                    <p>Track your health and stay connected on the go.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="view-all-btn">View All</a>
+    </section>
+
+    <!-- Head Phones Products Section -->
+
+    <section class="all-section" id="head-phones-products">
+        <h2>Head Phones</h2>
+        <div class="product-section">
+
+            <!-- Product Card 1 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/head phone/zebronics wired headphone.jpg" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/head phone/boat-rockers-450-bluetooth-headphone.jpg" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img src="img/head phone/Noise Wireless On-Ear Headphones.png" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+
+            <div class="product-card">
+                <div class="card-img">
+                    <img id="sony-headphone" src="img/head phone/sony-headphone.jpg" alt="New Headphones">
+                </div>
+                <div class="product-info">
+                    <h3>Premium Headphones</h3>
+                    <p>Experience sound like never before with our premium noise-canceling headphones.</p>
+                    <a href="#" class="buy-btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Button -->
+
+        <a href="all-headphone.html" class="view-all-btn">View All</a>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="index.html">4orcraze</a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service">Terms of Service</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Your Brand. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="code.js"></script>
+</body>
+
+</html>
