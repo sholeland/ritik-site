@@ -1,0 +1,8 @@
+ <button class="add-to-cart" data-product-id="1" data-product-name="Product Name" data-product-price="100">Add to Cart</button>
+
+
+
+
+
+
+

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: black;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        #navbar {
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+
+        .hero-slider {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        button.prev {
+            left: 10px;
+        }
+
+        button.next {
+            right: 10px;
+        }
+
+
+        .price {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .buy-btn {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .cart-button {
+            position: relative;
+            padding: 10px;
+            width: 200px;
+            height: 60px;
+            border: 0;
+            border-radius: 10px;
+            background-color: #4834d4;
+            outline: none;
+            cursor: pointer;
+            color: #fff;
+            transition: .3s ease-in-out;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .cart-button:hover {
+            background-color: #35269b;
+        }
+
+        .cart-button:active {
+            transform: scale(.9);
+        }
+
+        .cart-button .fa-shopping-cart {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            left: -10%;
+            font-size: 2em;
+            transform: translate(-50%, -50%);
+        }
+
+        .cart-button .fa-box {
+            position: absolute;
+            z-index: 3;
+            top: -20%;
+            left: 52%;
+            font-size: 1.2em;
+            transform: translate(-50%, -50%);
+        }
+
+        .cart-button span {
+            position: absolute;
+            z-index: 3;
+            left: 50%;
+            top: 50%;
+            font-size: 1.2em;
+            color: #fff;
+            transform: translate(-50%, -50%);
+        }
+
+        .cart-button span.add-to-cart {
+            opacity: 1;
+        }
+
+        .cart-button span.added {
+            opacity: 0;
+        }
+
+        .cart-button.clicked .fa-shopping-cart {
+            animation: cart 1.5s ease-in-out forwards;
+        }
+
+        .cart-button.clicked .fa-box {
+            animation: box 1.5s ease-in-out forwards;
+        }
+
+        .cart-button.clicked span.add-to-cart {
+            animation: txt1 1.5s ease-in-out forwards;
+        }
+
+        .cart-button.clicked span.added {
+            animation: txt2 1.5s ease-in-out forwards;
+        }
+
+        @keyframes cart {
+            0% {
+                left: -10%;
+            }
+
+            40%,
+            60% {
+                left: 50%;
+            }
+
+            100% {
+                left: 110%;
+            }
+        }
+
+        @keyframes box {
+
+            0%,
+            40% {
+                top: -20%;
+            }
+
+            60% {
+                top: 40%;
+                left: 52%;
+            }
+
+            100% {
+                top: 40%;
+                left: 112%;
+            }
+        }
+
+        @keyframes txt1 {
+            0% {
+                opacity: 1;
+            }
+
+            20%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes txt2 {
+
+            0%,
+            80% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="navbar"></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="hero-slider">
+                <div class="slides">
+                    <div class="slide active"
+                        style="background-image: url('https://via.placeholder.com/1200x500/ff7f7f/333333?text=Slide+1');">
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://via.placeholder.com/1200x500/7f7fff/333333?text=Slide+2');">
+                    </div>
+                    <div class="slide"
+                        style="background-image: url('https://via.placeholder.com/1200x500/7fff7f/333333?text=Slide+3');">
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+            <div class="product-details">
+                <p class="text-green-400 text-sm">⭐ 4.6 out of 5 stars based on 1242 reviews</p>
+                <h1 class="text-2xl font-bold mt-2">Air Pro 2nd Generation ANC (Type-C) | Free 5000mAh Magsafe Powerbank
+                    |
+                    100% Warranty Covered</h1>
+                <p class="text-yellow-400 text-sm mt-2">★★★★☆ 624 reviews</p>
+                <div class="flex items-center mt-2">
+                    <span class="line-through text-gray-400 mr-2">Rs. 2,000.00</span>
+                    <span class="text-lg font-semibold">Rs. 1,499.99</span>
+                    <span class="ml-2 px-2 py-1 bg-red-600 text-white text-xs rounded">Sale</span>
+                    <button class="buy-btn">Buy Now</button>
+                </div>
+
+                <button class="cart-button">
+                    <span class="add-to-cart">Add to cart</span>
+                    <span class="added">Added</span>
+                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-box"></i>
+                </button>
+            </div>
+    </main>
+
+    <script>
+        // Navbar Fetching
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("navbar").innerHTML = data)
+            .catch(err => console.error('Navbar load error:', err));
+
+        // Cart Animation
+        const cartButton = document.querySelector('.cart-button');
+        cartButton.addEventListener('click', () => {
+            cartButton.classList.add('clicked');
+            setTimeout(() => cartButton.classList.remove('clicked'), 2000); // Reset animation after 2 seconds
+        });
+
+        // Image Change Function
+        function changeImage(src) {
+            document.getElementById('main-img').src = src;
+        }
+        // CART BTN
+        function toggleCart() {
+            const cartContainer = document.getElementById('cartContainer');
+            cartContainer.style.display = cartContainer.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Optional: Close cart when clicking outside
+        document.addEventListener('click', function (event) {
+            const cart = document.getElementById('cartContainer');
+            const cartIcon = document.querySelector('.cart-icon');
+
+            if (!cart.contains(event.target) && !cartIcon.contains(event.target)) {
+                cart.style.display = 'none';
+            }
+        });
+        // 
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        document.querySelector('.next').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        });
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        showSlide(currentSlide);
+
+    </script>
+</body>
+
+</html>
